@@ -1,0 +1,32 @@
+name: Greetings
+
+on: [pull_request_target, issues]
+
+jobs:
+  greeting:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+    steps:
+    - uses: actions/first-interaction@v1
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        issue-message: |
+          Hi there! 👋
+
+          Welcome to our A/B testing project repository! We're excited that you've opened your first issue here. Please provide a clear description of the issue you're facing or the feature you'd like to see. Our team will be happy to assist you.
+
+          Remember to follow our contributing guidelines and be respectful to fellow contributors.
+
+          Happy coding!
+        
+        pr-message: |
+          Hi there! 👋
+
+          Congratulations on opening your first pull request in our A/B testing project repository! We appreciate your contribution.
+
+          Please make sure to include a detailed description of the changes you've made and any relevant context. Our team will review it as soon as possible.
+
+          Thank you for being a part of our community!
+
